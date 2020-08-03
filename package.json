@@ -18,6 +18,7 @@
   ],
   "author": "rajanchalla999@gmail.com",
   "license": "ISC",
-  "devDependencies": { "test": ">=0.6.0" }
+  "devDependencies": {
+    "test": ">=0.6.0"
+  }
 }
-

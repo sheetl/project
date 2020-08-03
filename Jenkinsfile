@@ -13,29 +13,22 @@ pipeline {
         stage('Checkout SCM') {
             steps {
                 script {
-                   
-                }
-            }
-        }
-        stage('NPM Install') {
-            steps {
-                script {
-                    sh label: '', script: 'npm install'
+                   git credentialsId: 'githubcredentials', url: 'https://github.com/sheetalrajan99/Assessment.git'
                 }
             }
         }
         stage('Docker Build') {
             steps {
                 script {
-                   sh label: '', script: 'docker build -t srujan .'
+                   sh label: '', script: 'docker build -t nodeapplication .'
                 }
             }
         }
         stage('Docker Push to ECR') {
             steps {
                 script {
-                    docker.withRegistry('https://550323674769.dkr.ecr.us-west-2.amazonaws.com/srujan:latest', 'ecr:us-west-2:AWSCredentials') {
-                        docker.image('srujan').push('latest')
+                    docker.withRegistry('https://691665429187.dkr.ecr.us-west-2.amazonaws.com/nodeapplication:latest', 'ecr:us-west-2:AWSCredentials') {
+                        docker.image('nodeapplication').push('latest')
                     }
                 }
             }
