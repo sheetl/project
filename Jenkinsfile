@@ -13,7 +13,7 @@ pipeline {
         stage('Checkout SCM') {
             steps {
                 script {
-                    git credentialsId: 'githubid', url: 'https://github.com/srujantata/NodeApp.git'
+                   
                 }
             }
         }
